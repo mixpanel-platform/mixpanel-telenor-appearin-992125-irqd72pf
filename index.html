@@ -5,11 +5,150 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/css/reset.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css">
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
+    <!-- Latest compiled and minified JavaScript Bootstrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- main style sheet -->
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body class="mixpanel-platform-body">
-    <h1>Hello, World!</h1>
-    <script>
-      // Run queries and display results here
+    <div class="container-fluid" id='pannel-container'>
+      <div class="row">
+          <div class="col-sm-3 col-sm-6">
+              <div class="panel panel-mpblue">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div class="huge" id="dau-header">0</div>
+                              <div class="panel-text">Daily Active Users Today</div>
+                          </div>
+                      </div>
+                  </div>
+                  <a href="#">
+                      <div class="panel-footer panel-footer-dau">
+                          <span class="pull-left">View Details</span>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                          <div class="clearfix"></div>
+                      </div>
+                  </a>
+              </div>
+          </div>
+          <div class="col-sm-3 col-sm-6">
+              <div class="panel panel-mpblue">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-line-chart fa-4x" aria-hidden="true"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div class="huge" id="mau-header">0</div>
+                              <div class="panel-text">Monthly Active Users</div>
+                          </div>
+                      </div>
+                  </div>
+                  <a href="#">
+                      <div class="panel-footer panel-footer-mau">
+                          <span class="pull-left">View Details</span>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                          <div class="clearfix"></div>
+                      </div>
+                  </a>
+              </div>
+          </div>
+          <div class="col-sm-3 col-sm-6">
+              <div class="panel panel-mpblue">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-shopping-cart fa-4x"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div class="huge" id="revenue-header">0</div>
+                              <div class="panel-text">Revenue Today</div>
+                          </div>
+                      </div>
+                  </div>
+                  <a href="#">
+                      <div class="panel-footer panel-footer-revenue">
+                          <span class="pull-left">View Details</span>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                          <div class="clearfix"></div>
+                      </div>
+                  </a>
+              </div>
+          </div>
+          <div class="col-sm-3 col-sm-6">
+              <div class="panel panel-mpblue">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-bar-chart fa-4x" aria-hidden="true"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div class="huge" id="avg-events">0</div>
+                              <div class="panel-text">Daily Events Per User</div>
+                          </div>
+                      </div>
+                  </div>
+                  <a href="#">
+                      <div class="panel-footer panel-footer-avg-events">
+                          <span class="pull-left">View Details</span>
+                          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                          <div class="clearfix"></div>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="container-fluid" id='mau-dau-graphs'>
+      <div class='row' id='headers mau-dau-headers'> <!-- start of mau and dua container -->
+        <div class="col-sm-6">
+          <h4 class="text-center  text-muted" id="dau-chart-header" style="display: none"><u>Daily Active Users</u></h4>
+        </div>
+        <div class="col-sm-6">
+          <h4 class="text-center text-muted" id="mau-chart-header" style="display: none"><u>Monthly Active Users</u></h4>
+        </div>
+      </div> <!--end of headers-->
+      <div class='row' id="mau-dau-graphs">   <!-- start of mau and dau graphs -->
+        <div class="col-sm-6">
+          <div id='dau-chart'></div>
+        </div>
+        <div class="col-sm-6">
+          <div id='mau-chart'></div>
+        </div>
+      </div><!-- end of mau and dua graphs -->
+    </div><!-- end of mau and dua container -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12" id="modular-graphs">
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid" id='add-chart-module'> <!--start of modular dashboard section-->
+      <div class="row">
+        <div class="col-sm-12" style="margin-top: 40px;">
+          <button class="text-center mp-button center-block" id="add-module" type="button" name="button">Add Chart</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      //some global variables
+      var numOfChart = 0
     </script>
+    <script type="text/javascript" src="scripts/utilityFunctions.js"></script>
+    <script type="text/javascript" src="scripts/daus.js"></script>
+    <script type="text/javascript" src="scripts/maus.js"></script>
+    <script type="text/javascript" src="scripts/addModule.js"></script>
   </body>
 </html>
