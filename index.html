@@ -30,7 +30,7 @@
                           </div>
                           <div class="col-xs-9 text-right">
                               <div class="huge" id="dau-header">0</div>
-                              <div class="panel-text">Daily Active Users Today</div>
+                              <div class="panel-text">Rooms Used Today</div>
                           </div>
                       </div>
                   </div>
@@ -74,7 +74,7 @@
                           </div>
                           <div class="col-xs-9 text-right">
                               <div class="huge" id="revenue-header">0</div>
-                              <div class="panel-text">Revenue Today</div>
+                              <div class="panel-text">Rooms Locked Today</div>
                           </div>
                       </div>
                   </div>
@@ -96,7 +96,7 @@
                           </div>
                           <div class="col-xs-9 text-right">
                               <div class="huge" id="avg-events">0</div>
-                              <div class="panel-text">Daily Events Per User</div>
+                              <div class="panel-text">Avg Room Duration Today</div>
                           </div>
                       </div>
                   </div>
@@ -130,25 +130,39 @@
       </div><!-- end of mau and dua graphs -->
     </div><!-- end of mau and dua container -->
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12" id="modular-graphs">
+      <div class='row' id='headers mau-dau-headers'> <!-- start of room container -->
+        <div class="col-sm-6">
+          <h4 class="text-center  text-muted" id="rooms-header" style="display: none"><u>Daily Rooms</u></h4>
         </div>
-      </div>
-    </div>
-    <div class="container-fluid" id='add-chart-module'> <!--start of modular dashboard section-->
-      <div class="row">
-        <div class="col-sm-12" style="margin-top: 40px;">
-          <button class="text-center mp-button center-block" id="add-module" type="button" name="button">Add Chart</button>
+        <div class="col-sm-6">
+          <h4 class="text-center text-muted" id="locked-rooms-header" style="display: none"><u>Daily Rooms Locked</u></h4>
         </div>
-      </div>
-    </div>
-    <script type="text/javascript">
-      //some global variables
-      var numOfChart = 0
-    </script>
+      </div> <!--end of headers-->
+      <div class='row' id="rooms-graphs">   <!-- start of mau and dau graphs -->
+        <div class="col-sm-6">
+          <div id='rooms-chart'></div>
+        </div>
+        <div class="col-sm-6">
+          <div id='locked-rooms-chart'></div>
+        </div>
+      </div><!-- end of rooom graphs -->
+    </div><!-- end of room container -->
+    <div class="container-fluid">
+      <div class='row' id='headers'> <!-- start of room container -->
+        <div class="col-sm-12">
+          <h4 class="text-center  text-muted" id="summary-header" style="display: none"><u>Room Summary</u></h4>
+        </div>
+      </div> <!--end of headers-->
+      <div class='row' id="rooms-graphs">   <!-- start of mau and dau graphs -->
+        <div class="col-sm-12">
+          <div id='summary-chart'></div>
+        </div>
+      </div><!-- end of rooom graphs -->
+    </div><!-- end of room container -->
     <script type="text/javascript" src="scripts/utilityFunctions.js"></script>
     <script type="text/javascript" src="scripts/daus.js"></script>
     <script type="text/javascript" src="scripts/maus.js"></script>
     <script type="text/javascript" src="scripts/addModule.js"></script>
+    <script type="text/javascript" src="scripts/rooms.js"></script>
   </body>
 </html>
